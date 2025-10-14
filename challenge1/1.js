@@ -19,3 +19,29 @@ const listaOvejas = [{
     nombre: "Demoni",
     color: "roja"
 }];
+
+// Mi solución
+
+let listaFinal = [];
+
+listaOvejas.forEach(o => {
+    if (o.color === "roja" && o.nombre.toLowerCase().includes("n") && o.nombre.toLowerCase().includes("a")) {
+        listaFinal.push(o);
+    }
+});
+
+console.log(listaFinal);
+
+// Solución propuesta
+
+function filtrarOvejas(ovejas) {
+    return ovejas.filter(oveja => {
+        const nombre = oveja.nombre.toLowerCase();
+        const color = oveja.color.toLowerCase();
+
+        return color === "roja" && nombre.includes('n') && nombre.includes('a');
+    })
+}
+
+const ovejasFiltradas = filtrarOvejas(listaOvejas);
+console.log(ovejasFiltradas);
