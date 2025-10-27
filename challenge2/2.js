@@ -24,3 +24,24 @@ const gifts = ['libro', 'ps5']
 const materials = 'psli'
 
 manufacture(gifts, materials) // [] */
+
+const gifts = ['juego', 'puzzle']
+const materials = 'jlepuz'
+
+const gifts1 = ['tren', 'oso', 'pelota']
+const materials1 = 'tronesa'
+
+const manufacture = (gifts, materials) => {
+    const manufactubles = gifts.filter(g => {
+        for (const l in g) {
+
+            if (!materials.includes(g[l])) {
+                return false;
+            }
+        }
+    return true;
+    });
+    return manufactubles;
+}
+console.log(manufacture(gifts, materials)); // [ 'puzzle' ]
+console.log(manufacture(gifts1, materials1)); // [ 'tren', 'oso' ]
