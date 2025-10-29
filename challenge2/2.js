@@ -31,16 +31,20 @@ const materials = 'jlepuz'
 const gifts1 = ['tren', 'oso', 'pelota']
 const materials1 = 'tronesa'
 
-const manufacture = (gifts, materials) => {
-    return gifts.filter(g => {
-        for (const l in g) {
+const gifts3 = ['libro', 'ps5']
+const materials3 = 'psli'
 
-            if (!materials.includes(g[l])) {
+const manufacture = (gifts, materials) => {
+    const manufacturable =  gifts.filter(g => {
+        for (const letter in g) {
+            if (!materials.includes(g[letter])) {
                 return false;
             }
         }
     return true;
     });
+    console.log(manufacturable);
 }
-console.log(manufacture(gifts, materials)); // [ 'puzzle' ]
-console.log(manufacture(gifts1, materials1)); // [ 'tren', 'oso' ]
+manufacture(gifts, materials); // [ 'puzzle' ]
+manufacture(gifts1, materials1); // [ 'tren', 'oso' ]
+manufacture(gifts3, materials3); // []
